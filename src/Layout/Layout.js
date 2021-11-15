@@ -4,6 +4,7 @@ import Navbar from '../Components/Navbar'
 import { ReactComponent as PrunedgeLogo } from "../assets/prunedge-logo.svg";
 import { Box }  from "@material-ui/core";
 import Modal from "../Resuables/Modal";
+import { ReactComponent as TimesIcon } from "../assets/times.svg";
 
 function Layout({children}) {
 
@@ -11,18 +12,16 @@ function Layout({children}) {
   const handleClick = () =>setOpen(true)
   const handleClose = () =>setOpen(false)
 
-  const message = () => {
-    console.log('hi')
-  }
-
   const renderModal = () => {
+
     return (
-      <Modal 
+      <Modal
         open={open} 
         close={handleClose}
+        handleClose={handleClose}
+        renderIcon={() => <TimesIcon />}
         renderLogo={() => <PrunedgeLogo />}
         heading="Welcome"
-        renderMessage={message}
         text2="Click “Sign In” to agree to Prunedge Medium’s Terms of Service and acknowledge that Prunedge Medium’s Privacy Policy applies to you."
       />
     )

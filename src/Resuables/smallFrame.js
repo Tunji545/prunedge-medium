@@ -1,28 +1,27 @@
 import React from 'react'
-import { Box, Typography, makeStyles } from '@material-ui/core'
+import { Typography } from '@mui/material'
+import { Box } from '@mui/system'
 import { theme } from "../theme/theme"
 
-const useStyles = makeStyles({
-  basic: {
-    fontFamily: theme.typography.subtitle1.fontFamily,
-    fontSize: "1.1429rem",
-    lineHeight: "21px"
+  const basic =  {
+    paddingLeft: theme.spacing(2),
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between"
   }
-})
 
 function SmallFrame({smallBg, text1, text2}) {
 
-  const classes = useStyles();
   return (
-    <Box display="flex">
+    <Box display="flex" marginBottom={theme.spacing(2.5)}>
       <Box
         component="img"
         alt=""
         src={smallBg}
       />
-      <Box className={classes.basic}>
-        <Typography>{text1}</Typography>
-        <Typography>{text2}</Typography>
+      <Box sx={basic}>
+        <Typography fontSize={14} fontFamily="Ubuntu">{text1}</Typography>
+        <Typography fontSize={14} fontFamily="Ubuntu" color="#A7A9BC">{text2}</Typography>
       </Box>
     </Box>
   )

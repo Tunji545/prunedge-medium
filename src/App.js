@@ -1,9 +1,10 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import './App.css';
-import {CssBaseline, ThemeProvider} from "@material-ui/core"
+import { ThemeProvider } from "@mui/material/styles";
 import ExploreCategory from "./Pages/ExploreCategory";
 import LandingPage from "./Pages/LandingPage";
+import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from "./theme/theme";
 
 function App() {

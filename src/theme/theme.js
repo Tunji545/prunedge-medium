@@ -1,4 +1,4 @@
-import { createTheme } from "@material-ui/core";
+import { createTheme } from "@mui/material/styles"
 
 export const theme = createTheme({
   palette: {
@@ -12,10 +12,17 @@ export const theme = createTheme({
       main: "#F7F8F9"
     },
     primary: {
-      main: "#Fff"
+      main: "#000000"
     },
     success: {
       main: "#15692A"
+    },
+    warning: {
+      main: "#ffffff"
+    },
+    optional: {
+      main: '#FFCC2E',
+      contrastText: '#15692A'
     }
   },
   typography: {
@@ -52,7 +59,6 @@ export const theme = createTheme({
 });
 
 theme.props = {
-
 }
 
 theme.overrides = {
@@ -67,11 +73,7 @@ theme.overrides = {
     },
     MuiInputBase: {
       root: {
-        padding: "0, 8",
-        borderRadius: 4,
-        position: "relative",
-        top: 8,
-        marginRight: "40"
+        borderRadius: 8,
       }
     }
   }

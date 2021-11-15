@@ -1,11 +1,12 @@
 import { Typography } from '@material-ui/core'
 import React from 'react'
+import Layout from "../Layout/Layout"
 
 function ExploreCategory() {
   return (
-    <div>
+    <Layout>
       <Typography color="textPrimary">hkjjsjgkl;kglg</Typography>
-    </div>
+    </Layout>
   )
 }
 

@@ -9,17 +9,15 @@ import { ReactComponent as PrunedgeLogo1 } from "../assets/prunedge-logo1.svg";
 const useStyles = makeStyles({
   root: {
     backgroundColor: "#272833",
-    // position: "absolute",
-    // bottom: 0
   }
 })
 
-function Footer() {
+function Footer({bg}) {
 
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.root}>
+    <AppBar position="static" className={!bg && classes.root}>
       <Toolbar>
         <Grid container alignItems="center" justifyContent="space-between" spacing={theme.spacing(3)}>
           <Grid item>

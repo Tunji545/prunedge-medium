@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, makeStyles, Grid, IconButton, TextField, Paper } from "@material-ui/core";
+import { Typography, Box, makeStyles, Grid, IconButton, TextField, Paper, InputBase } from "@material-ui/core";
 import bgImage1 from "../assets/bgImage1.png";
 import { theme } from "../theme/theme";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -20,7 +20,7 @@ import { BgHorin } from "../utils/data.js";
 import DottedLines2 from "../assets/dottedLines2.svg";
 import DottedLines3 from "../assets/dottedLines3.svg";
 import DottedLines4 from "../assets/dottedLines4.svg";
-import HandBook from "../assets/handBook.png";
+import HandBook from "../assets/handBook.svg";
 import Layout from "../Layout/Layout"
 
 const useStyles = makeStyles({
@@ -55,6 +55,11 @@ const useStyles = makeStyles({
     paddingTop: theme.spacing(16.875),
     position: "relative"
   },
+  wrap: {
+    backgroundColor: theme.palette.secondary.main, 
+    margin: theme.spacing(22.5, 13.875, 27, 0),
+    position: "relative",
+  },
   box4: {
     display: "flex",
     justifyContent: "space-between",
@@ -68,7 +73,7 @@ const useStyles = makeStyles({
     fontSize: "1.25rem",
     lineHeight: "27px",
     fontFamily: "Ubuntu",
-    color: theme.palette.primary.main
+    color: theme.palette.warning.main
   },
   box5: {
     paddingLeft: theme.spacing(13.375),
@@ -82,7 +87,7 @@ const useStyles = makeStyles({
   },
   btn: {
     position: "absolute",
-    bottom: 250,
+    bottom: 270,
     left: 100
   },
   box6: {
@@ -102,10 +107,14 @@ const useStyles = makeStyles({
   box7: {
     backgroundColor: "#15692A",
     padding: theme.spacing(12, 11.5),
-    color: theme.palette.primary.main,
+    color: theme.palette.warning.main,
     position: "absolute",
     bottom: 100,
-    left: 100
+    right: 460,
+    fontFamily: theme.typography.subtitle1.fontFamily,
+    "& fieldset": {
+      borderRadius: 0
+    }
   },
  
 })
@@ -145,12 +154,12 @@ function LandingPage() {
             </Box>
           </Grid>
           <Grid item xs={12} sm={6} />
-      </Grid>
+        </Grid>
       </Box>
       <Box>
         <Box className={classes.box5} display="flex" justifyContent="space-between">
           <Typography variant="h4" component="span">Latest</Typography>
-          <Button text="view all" variant="outlined" color="#393A4A" />
+          <Button text="view all" variant="outlined" color="primary" />
         </Box>
         <Box display="flex" style={{paddingLeft: theme.spacing(13.375)}}>
           {cardDetails.map(card => (
@@ -191,7 +200,7 @@ function LandingPage() {
       <Box className={classes.box1}>
         <Box className={classes.box2} display="flex" justifyContent="space-between">
           <Typography variant="h4" component="span">All Articles</Typography>
-          <Button text="Explore all" variant="outlined" color="#393A4A" />
+          <Button text="Explore all" variant="outlined" color="primary" />
         </Box>
         <Grid container>
           <Grid item xs={12} sm={6}>
@@ -236,17 +245,17 @@ function LandingPage() {
           </Grid>
         </Grid>
       </Box>
-      <Box display="flex" style={{backgroundColor: theme.palette.secondary.main, marginRight: theme.spacing(13.875)}}>
+      <Box display="flex" className={classes.wrap}>
         <Box
           component="img"
           alt=""
           src={DottedLines}
         />
         <Box
+          position="absolute"
           component="img"
           alt=""
           src={SmilingGirl}
-          display="flexbox"
         />
         <Box  
           display="flex"
@@ -305,14 +314,14 @@ function LandingPage() {
                   <Typography style={{opacity: 0.8, marginRight: theme.spacing(1)}}>
                     {cardLike.text3}
                   </Typography>
-                  <Button text="Technology" color="primary" style={{borderRadius: 25, fontSize: 12}} />
+                  <Button text="Technology" color="warning" style={{borderRadius: 25, fontSize: 12}} />
                 </Box>
               </Grid>
               <Grid item xs={5} />
             </Grid> 
           </Box>
         ))}
-      <Box
+        <Box
           component="img"
           alt=""
           src={DottedLines3}
@@ -321,7 +330,11 @@ function LandingPage() {
       </Box>
       <Box className={classes.box6}>
         <Button text="Quotes & Mentions" className={classes.btn} style={{backgroundColor: "red"}} />
-        <Typography variant="h3" gutterBottom style={{color: "#393A4A", textAlign: "center"}}>
+        <Typography 
+          variant="h3" 
+          gutterBottom 
+          style={{color: "#393A4A", textAlign: "center", fontWeight: 700}}
+        >
           {quote}
         </Typography>
         <Typography className={classes.text4} gutterBottom>Segun Oroyo</Typography>
@@ -329,41 +342,41 @@ function LandingPage() {
           Senior Product Designer, Prunedge
         </Typography>
       </Box>
-      <Box position="relative" style={{marginBottom: "theme.spacing(24.125)"}}>
+      <Box display="flex" justifyContent="flex-end" marginBottom={theme.spacing(17.5)} position="relative">
         <Box
           component="img"
           alt=""
           src={DottedLines4}
+          position="absolute"
+          left={220}
+          top={150}
         />
-        <Box className={classes.box7} component="span">
-          <Typography variant="h4" color="primary" gutterBottom>
+        <Box component="span" className={classes.box7}>
+          <Typography variant="h4" color="warning" gutterBottom>
             Subscribe to our Newsletter
           </Typography>
-          <Typography variant="subtitle1" style={{lineHeight: "24px", fontWeight: 400, paddingBottom: theme.spacing(2) }}>
+          <Typography color="warning" gutterBottom>
             Get Access to our exclusive content anytime, anywhere!
-          </Typography> 
-          <Box display="flex" alignItems="center" component={Paper} square>
-            <TextField 
+          </Typography>
+          <Box display="flex" padding={1} component={Paper} square>
+            <InputBase
               variant="outlined" 
-              label="Enter your email.."  
+              placeholder="Enter your email.."  
               fullWidth
-              size="small"
-              className={classes.textField}
               component="span"
+              size="small"
             />
             <Button 
-            text="subscribe" 
-            color="primary"  
-            
-            // style={{position: "absolute", bottom: 20}}
-            />
-          </Box>
+              text="subscribe"
+              size="large"
+              style={{backgroundColor: "#FFCC2E", color: "#15692A", fontWeight: 700}} 
+            /> 
+          </Box>  
         </Box>
         <Box
           component="img"
           alt=""
           src={HandBook}
-          style={{position: "relative", left: 488, bottom: 30}}
         />
       </Box>
     </Layout>

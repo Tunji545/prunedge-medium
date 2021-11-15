@@ -3,6 +3,7 @@ import { AppBar, Toolbar, makeStyles, Grid, IconButton, InputBase } from '@mater
 import Button from "../Resuables/Button"
 import { theme } from "../theme/theme"
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles({
   root: {
@@ -12,15 +13,25 @@ const useStyles = makeStyles({
     "& .MuiToolbar-gutters": {
       paddingLeft: theme.spacing(0),
       paddingRight: theme.spacing(0),
+    },
+    "& a": {
+      textDecoration: "none"
     }
   },
   searchBar: {
     fontSize: theme.typography.fontSize,
     border: "1px solid #ccc",
     opacity: "0.6",
+    position: "relative",
+    top: 8,
+    marginRight: "40px",
+    paddingLeft: theme.spacing(1),
+    "& .MuiSvgIcon-root": {
+      marginRight: theme.spacing(1)
+    }
   },
   btn1: {
-    marginLeft: `${theme.spacing(3)} !important`
+    marginRight: "20px"
   }
 })
 
@@ -33,9 +44,11 @@ function Navbar({renderLogo, handleClick}) {
       <Toolbar>
         <Grid container alignItems="center" justifyContent="space-between" spacing={theme.spacing(3)}>
           <Grid item>
-            <IconButton component="span">
-              {renderLogo()}
-            </IconButton>
+            <Link to="/">
+              <IconButton component="span">
+                {renderLogo()}
+              </IconButton>
+            </Link>
           </Grid>
           <Grid item style={{fontSize: 14}}> 
             <InputBase 
@@ -43,7 +56,9 @@ function Navbar({renderLogo, handleClick}) {
               startAdornment={<SearchIcon fontSize="small" />}
               placeholder="Search"
             />
-            <Button text="Explore Categories" variant="outlined" className={classes.btn1} />
+            <Link to="/category">
+              <Button text="Explore Categories" variant="outlined" className={classes.btn1} />
+            </Link>
             <Button text="Sign in" className={classes.btn2} onClick={handleClick} />
           </Grid>
         </Grid>
