@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, makeStyles, Grid, IconButton, TextField, Paper, InputBase } from "@material-ui/core";
+import { Typography, Box, makeStyles, Grid, IconButton, Paper, InputBase } from "@material-ui/core";
 import bgImage1 from "../assets/bgImage1.png";
 import { theme } from "../theme/theme";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
